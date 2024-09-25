@@ -11,7 +11,7 @@ public interface IUsuarioService {
     UsuarioModel buscarUsuarioPorId(int UsuarioId);
     List<UsuarioModel> listarUsuarios();
     // editar usuario existente
-    UsuarioModel editarUsuario(UsuarioModel usuario);
+    // UsuarioModel editarUsuario(UsuarioModel usuario);
     //--  eliminar por id
-    void eliminarUsuario(int usuarioId);
+    void eliminarUsuarioPorId(int usuarioId);
 }

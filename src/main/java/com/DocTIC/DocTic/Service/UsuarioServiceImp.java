@@ -28,17 +28,14 @@ public class UsuarioServiceImp implements IUsuarioService {
     @Override
     public String registroUsuario(UsuarioModel usuario) {
         usuarioRepository.save(usuario);// hace el llamado al crud interno
-        return "El Usuario "+usuario.getNombre()+
-               " "+usuario.getNombre()+ " fue creado con exito";
+        return "El Usuario "+usuario.getNombre()+ " fue creado con exito";
     }
+    // @Override
+    // public UsuarioModel editarUsuario(UsuarioModel usuario) {
+    //     //
+    // }
     @Override
-    public UsuarioModel editarUsuario(UsuarioModel usuario) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'editarUsuario'");
-    }
-    @Override
-    public void eliminarUsuario(int usuarioId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'eliminarUsuario'");
+    public void eliminarUsuarioPorId(int usuarioId) {
+       usuarioRepository.deleteById(usuarioId); 
     }
 }
