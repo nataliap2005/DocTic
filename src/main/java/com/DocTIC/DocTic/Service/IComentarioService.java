@@ -1,5 +1,7 @@
 package com.DocTIC.DocTic.Service;
 
+import java.util.List;
+
 import com.DocTIC.DocTic.Model.ComentarioModel;
 
 /**
@@ -12,5 +14,7 @@ import com.DocTIC.DocTic.Model.ComentarioModel;
 
 public interface IComentarioService{
     String crearComentario(ComentarioModel comentario);
+    ComentarioModel buscarComentarioPorId(int comentarioId);
+    List<ComentarioModel> listarComentarios();
   
 }
