@@ -13,8 +13,52 @@ import com.DocTIC.DocTic.Model.ComentarioModel;
  */
 
 public interface IComentarioService{
+   /**
+     * [crearComentario]
+     * 
+     * Este método se encarga de crear un nuevo comentario en el sistema.
+     * 
+     * 25-09-2024
+     */
+
     String crearComentario(ComentarioModel comentario);
+
+     /**
+     * [buscarComentarioPorId]
+     * 
+     * Este método se encarga de buscar y recuperar un comentario por su id.
+     * 
+     * 25-09-2024
+     */
+
     ComentarioModel buscarComentarioPorId(int comentarioId);
+
+    /**
+     * [listarComentarios]
+     * 
+     * Este método se encarga de recuperar todos los comentarios de la base de datos.
+     * 
+     * 25-09-2024
+     */
+
     List<ComentarioModel> listarComentarios();
-  
+
+    /**
+     * [editarComentario]
+     * 
+     * Este método se encarga de editar un comentario existente en la base de datos.
+     * 
+     * 25-09-2024
+     */
+    String editarComentario(ComentarioModel comentario);
+
+    /**
+     * [findBySubIdComentario]
+     * 
+     * Este método se encarga de encontrar todos los comentarios hijospor su subIdComentario
+     * 
+     * 25-09-2024
+     */
+    
+    String eliminarComentario(int comentarioId);
 }
