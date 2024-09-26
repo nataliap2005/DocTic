@@ -53,11 +53,11 @@ public interface IComentarioService{
     String editarComentario(ComentarioModel comentario);
 
     /**
-     * [findBySubIdComentario]
+     * [eliminarComentario]
      * 
-     * Este método se encarga de encontrar todos los comentarios hijospor su subIdComentario
+     * Este método se encarga de eliminar un comentario de la base de datos.
      * 
-     * 25-09-2024
+     * 26-09-2024
      */
     
     String eliminarComentario(int comentarioId);

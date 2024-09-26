@@ -15,5 +15,14 @@ import java.util.List;
 
 @Repository
 public interface IComentarioRepository extends JpaRepository<ComentarioModel, Integer>{
+
+        /**
+         * [findBySubIdComentario]
+         * 
+         * Este método se encarga de encontrar todos los comentarios hijos por su subIdComentario.
+         * 
+         * 26-09-2024
+         */
+
         List<ComentarioModel> findBySubIdComentario(int subIdComentario);
 }
