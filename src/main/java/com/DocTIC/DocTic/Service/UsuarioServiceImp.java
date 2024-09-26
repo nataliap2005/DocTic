@@ -16,10 +16,10 @@ public class UsuarioServiceImp implements IUsuarioService {
     
     
     @Override
-    public UsuarioModel buscarUsuarioPorId(int UsuarioId) {
-        Optional<UsuarioModel> UsuarioRecuperadado = usuarioRepository.findById(UsuarioId);
+    public UsuarioModel buscarUsuarioPorId(int usuarioId) {
+        Optional<UsuarioModel> UsuarioRecuperadado = usuarioRepository.findById(usuarioId);
         return UsuarioRecuperadado.orElseThrow(()-> new RecursoNoEncontradoException
-        ("Error! El Usuario con el Id "+UsuarioId+", no existe en la BD o el id incorrecto"));
+        ("Error! El Usuario con el Id "+usuarioId+", no existe en la BD o el id incorrecto"));
     }
     @Override
     public List<UsuarioModel> listarUsuarios() {
@@ -30,10 +30,27 @@ public class UsuarioServiceImp implements IUsuarioService {
         usuarioRepository.save(usuario);// hace el llamado al crud interno
         return "El Usuario "+usuario.getNombre()+ " fue creado con exito";
     }
-    // @Override
-    // public UsuarioModel editarUsuario(UsuarioModel usuario) {
-    //     //
-    // }
+    @Override
+    public String editarUsuario(int usuarioId, UsuarioModel usuarioNuevo) {
+        Optional<UsuarioModel> UsuarioEncontrado = usuarioRepository.findById(usuarioId);
+       
+        if (UsuarioEncontrado.isPresent()) {
+            UsuarioModel usuario = UsuarioEncontrado.get();
+            usuario.setNombre(usuarioNuevo.getNombre());
+            usuario.setNumDocumento(usuarioNuevo.getNumDocumento());
+            usuario.setNickname(usuarioNuevo.getNickname());
+            usuario.setEmail(usuarioNuevo.getEmail());
+            usuario.setCiudad(usuarioNuevo.getCiudad());
+            usuario.setDepartamento(usuarioNuevo.getDepartamento());
+            usuario.setPreguntaSecreta(usuarioNuevo.getPreguntaSecreta());
+            usuario.setRespuestaSecreta(usuarioNuevo.getRespuestaSecreta());   
+            usuarioRepository.save(usuario);
+
+            return "El usuario con id "+usuarioNuevo.getIdUsuario()+" fue editado con exito"; 
+        } else {
+            return null;
+        }
+    }
     @Override
     public void eliminarUsuarioPorId(int usuarioId) {
        usuarioRepository.deleteById(usuarioId); 
