@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.DocTIC.DocTic.Exception.RecursoNoEncontradoException;
-import com.DocTIC.DocTic.Model.ComentarioDTO;
 import com.DocTIC.DocTic.Model.ComentarioModel;
+import com.DocTIC.DocTic.Model.DataTransferObject.ComentarioDTO;
 import com.DocTIC.DocTic.Service.IComentarioService;
 
 /**
@@ -37,20 +37,20 @@ public class ComentarioController {
         return new ResponseEntity<String>(comentarioService.crearComentario(comentario), HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/obtener/{id}")
     public ResponseEntity<?> burcarComentarioPorId(@PathVariable int id){
         try {
             ComentarioModel comentario = comentarioService.buscarComentarioPorId(id);
-            ComentarioDTO comentarioDTO = new ComentarioDTO(comentario);
+            // ComentarioDTO comentarioDTO = new ComentarioDTO(comentario);
 
-            return ResponseEntity.ok(comentarioDTO);
+            return ResponseEntity.ok(comentario);
             
         } catch (RecursoNoEncontradoException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
 
-    @GetMapping("/listar")
+    @GetMapping("/obtener")
     public ResponseEntity<List<ComentarioDTO>> mostrarComentarios(){
         List<ComentarioModel> comentarios = comentarioService.listarComentarios();
         List<ComentarioDTO> comentarioDTOs = comentarios.stream().map(ComentarioDTO::new).collect(Collectors.toList());

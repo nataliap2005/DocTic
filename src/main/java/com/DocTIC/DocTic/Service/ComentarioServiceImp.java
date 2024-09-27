@@ -44,24 +44,37 @@ public class ComentarioServiceImp implements IComentarioService{
 
     @Override
     public String editarComentario(ComentarioModel comentario) {
-        comentarioRepository.save(comentario);
-        return "Éxito al actualizar el comentario con ID " + comentario.getIdComentario(); 
+
+        Optional <ComentarioModel> comentarioDB = comentarioRepository.findById(comentario.getIdComentario());
+
+        if (comentarioDB.isPresent()) {
+            comentarioRepository.save(comentario);
+            return "Éxito al actualizar el comentario con ID " + comentario.getIdComentario();      
+        }else{
+            throw new RecursoNoEncontradoException("¡Error! El comentario con ID " + comentario.getIdComentario() + " no existe en la base de datos o es incorrecto.")  ;
+        }
     }
 
     @Override
     public String eliminarComentario(int comentarioId) {
 
-        List<ComentarioModel> comentariosHijos = comentarioRepository.findBySubIdComentario(comentarioId);
-        System.out.println("--- Entrando a eliminar comentarios...");
+        Optional<ComentarioModel> comentario = comentarioRepository.findById(comentarioId);
+        
+        if (comentario.isPresent()) {
+            
+            List<ComentarioModel> comentariosHijos = comentarioRepository.findBySubIdComentario(comentarioId);
 
         for (ComentarioModel comentarioHijo : comentariosHijos) {
-            
-            System.out.println("--- Se encontró el comentario hijo con ID: "+comentarioHijo.getIdComentario().toString());
-            
+                        
             comentarioRepository.deleteById(comentarioHijo.getIdComentario());
         }
 
         comentarioRepository.deleteById(comentarioId);
+        
         return "Éxito al aliminar el comentario con ID " + comentarioId;
+            
+        } else {
+            return "¡Error! No exise un comentario con ID " + comentarioId;
+        }        
     }
 }
