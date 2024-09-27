@@ -2,8 +2,6 @@ package com.DocTIC.DocTic.Model;
 
 import java.time.LocalDate;
 
-import org.springframework.context.annotation.Primary;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -45,11 +43,11 @@ public class ComentarioModel {
 
     @ManyToOne
     @JoinColumn(name = "idUsuario", nullable = false)
-    private UsuarioModel usuarioId;
+    private UsuarioModel idUsuario;
     
     @ManyToOne
     @JoinColumn(name = "idDocumento", nullable = false)
-    private DocumentoModel documentoId;
+    private DocumentoModel idDocumento;
 
     @ManyToOne
     @JoinColumn(name = "subIdComentario", insertable = false, updatable = false)
