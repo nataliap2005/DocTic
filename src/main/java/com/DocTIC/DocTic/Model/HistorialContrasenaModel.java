@@ -1,22 +1,22 @@
 package com.DocTIC.DocTic.Model;
 
-import java.sql.Date;
-
-import com.DocTIC.DocTic.Model.ENUM.Estado;
+import com.DocTIC.DocTic.Model.ENUM.EstadoContrasena;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.time.LocalDate;
+
 
 @Entity
 @Table(name= "historial_contraseña")
@@ -26,15 +26,22 @@ import lombok.NoArgsConstructor;
 
 public class HistorialContrasenaModel {
     @Id
-    private Integer idContraseña;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idHistorial")
+    private Integer idHistorial;
+
     @ManyToOne
     @JoinColumn(name="idUsuario")
-    private UsuarioModel usuarioModel;
+    private UsuarioModel usuario;
+
+    @Column(name = "contraseña")
     private String contraseña;
-    @Temporal(TemporalType.DATE)
-    private Date fecha;
+
+    @Column(name= "fecha")
+    private LocalDate fecha;
+
     @Column(name="estado")
     @Enumerated(EnumType.STRING)
-    private Estado estado;
+    private EstadoContrasena estado;
 }
 
