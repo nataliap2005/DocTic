@@ -1,7 +1,6 @@
 package com.DocTIC.DocTic.Model;
 
-
-import com.DocTIC.DocTic.Model.ENUM.Estado;
+import com.DocTIC.DocTic.Model.ENUM.EstadoDocumento;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Column;
@@ -38,7 +37,7 @@ public class DocumentoModel {
 
     @Column(name = "estado")
     @Enumerated(EnumType.STRING)
-    private Estado estado;
+    private EstadoDocumento estado;
 
      // getter and setter para arreglar el error
     public String getNombre() {
@@ -78,11 +77,11 @@ public class DocumentoModel {
         this.url = url;
     }
 
-    public Estado getEstado() {
+    public EstadoDocumento getEstado() {
         return estado;
     }
 
-    public void setEstado(Estado estado) {
+    public void setEstado(EstadoDocumento estado) {
         this.estado = estado;
     }
 

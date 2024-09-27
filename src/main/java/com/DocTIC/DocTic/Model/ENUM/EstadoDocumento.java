@@ -1,5 +1,5 @@
 package com.DocTIC.DocTic.Model.ENUM;
 
-public enum Estado {
+public enum EstadoDocumento {
     publico, privado
 }

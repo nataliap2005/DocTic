@@ -51,7 +51,6 @@ public class DocumentoController {
     @PutMapping("/editar/{id}")
     public ResponseEntity<String> editarDocumento(@PathVariable int id, @RequestBody DocumentoModel documentoNuevo) {
         try {
-            DocumentoModel documentoActualizado = documentoService.editarDocumento(id, documentoNuevo);
             return new ResponseEntity<>("El documento con id " + id + " fue actualizado con éxito.", HttpStatus.OK);
         } catch (RecursoNoEncontradoException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);

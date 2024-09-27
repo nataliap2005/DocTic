@@ -1,6 +1,8 @@
-package com.DocTIC.DocTic.Model;
+package com.DocTIC.DocTic.Model.DataTransferObject;
 
 import java.time.LocalDate;
+
+import com.DocTIC.DocTic.Model.ComentarioModel;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,7 +22,7 @@ public class ComentarioDTO {
         this.subIdComentario = comentario.getSubIdComentario();
         this.textComentario = comentario.getTextComentario();
         this.fecha = comentario.getFecha();
-        this.usuarioId = comentario.getUsuarioId().getIdUsuario();
-        this.documentoId = comentario.getDocumentoId().getIdDocumento();  
+        this.usuarioId = comentario.getIdUsuario().getIdUsuario();
+        this.documentoId = comentario.getIdDocumento().getIdDocumento();  
     }
 }
