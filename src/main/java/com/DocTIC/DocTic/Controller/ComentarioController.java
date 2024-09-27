@@ -1,8 +1,6 @@
 package com.DocTIC.DocTic.Controller;
 
 import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.DocTIC.DocTic.Exception.RecursoNoEncontradoException;
 import com.DocTIC.DocTic.Model.ComentarioModel;
-import com.DocTIC.DocTic.Model.DataTransferObject.ComentarioDTO;
 import com.DocTIC.DocTic.Service.IComentarioService;
 
 /**
@@ -41,8 +38,6 @@ public class ComentarioController {
     public ResponseEntity<?> burcarComentarioPorId(@PathVariable int id){
         try {
             ComentarioModel comentario = comentarioService.buscarComentarioPorId(id);
-            // ComentarioDTO comentarioDTO = new ComentarioDTO(comentario);
-
             return ResponseEntity.ok(comentario);
             
         } catch (RecursoNoEncontradoException e) {
@@ -51,10 +46,9 @@ public class ComentarioController {
     }
 
     @GetMapping("/obtener")
-    public ResponseEntity<List<ComentarioDTO>> mostrarComentarios(){
+    public ResponseEntity<List<ComentarioModel>> mostrarComentarios(){
         List<ComentarioModel> comentarios = comentarioService.listarComentarios();
-        List<ComentarioDTO> comentarioDTOs = comentarios.stream().map(ComentarioDTO::new).collect(Collectors.toList());
-        return new ResponseEntity<List<ComentarioDTO>> (comentarioDTOs, HttpStatus.OK);
+        return new ResponseEntity<List<ComentarioModel>> (comentarios, HttpStatus.OK);
     }
 
     @PutMapping("/editar")

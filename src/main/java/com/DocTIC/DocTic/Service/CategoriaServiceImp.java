@@ -33,6 +33,21 @@ public class CategoriaServiceImp implements ICategoriaService{
     }
 
     @Override
+    public String editarCategoria(CategoriaModel categoria){
+        
+        Optional<CategoriaModel> categoriaEncontrada = categoriaRepository.findById(categoria.getIdCategoria());
+
+        if (categoriaEncontrada.isPresent()) {
+            categoriaRepository.save(categoria);
+            return "Éxito al actualizar la categoría con el ID "+ categoria.getIdCategoria();
+        } else {
+           throw new RecursoNoEncontradoException("¡Error! La categoría con ID " + categoria.getIdCategoria() + " no existe en la base de datos o es incorrecto." );
+        }
+
+    }
+        
+
+    @Override
     public String eliminarCategoriaPorId(int categoriaId){
 
         Optional<CategoriaModel> categoria = categoriaRepository.findById(categoriaId);

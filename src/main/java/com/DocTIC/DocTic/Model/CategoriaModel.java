@@ -36,6 +36,6 @@ public class CategoriaModel {
     private CategoriaModel categoriaPadre;
 
     @ManyToOne
-    @JoinColumn(name = "idDocumento", nullable = false)
+    @JoinColumn(name = "idDocumento", nullable = true)
     private DocumentoModel documento;    
 }

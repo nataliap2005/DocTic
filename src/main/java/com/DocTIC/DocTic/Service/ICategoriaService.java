@@ -40,6 +40,17 @@ public interface ICategoriaService {
     List<CategoriaModel> obtenerCategorias();
 
     /**
+     * [editarCategoria]
+     * 
+     * Este método se encarga de recuperar todas las categorías de la base de datos.
+     * 
+     * 26-09-2024
+     */
+
+     String editarCategoria(CategoriaModel categoria);
+
+
+    /**
      * [eliminarCategoriaPorId]
      * 
      * Este método se encarga de eliminar una categoría de la base de datos.
@@ -47,4 +58,6 @@ public interface ICategoriaService {
      * 26-09-2024
      */
     String eliminarCategoriaPorId(int idCategoria);
+
+
 }
