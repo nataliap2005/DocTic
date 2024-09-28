@@ -17,6 +17,13 @@ import com.DocTIC.DocTic.Exception.RecursoNoEncontradoException;
 import com.DocTIC.DocTic.Model.CategoriaModel;
 import com.DocTIC.DocTic.Service.ICategoriaService;
 
+/**
+ * [CategoriaController]
+ * 
+ * Esta clase actúa como el punto de entrada para todas las operaciones relacionadas con las categorías. Funciona como un controlador REST, por lo que se encarga de recibir solicitudes HTTP relacionadas con las categor+ias y generar las correspondientes respuestas.
+ * 
+ * 28-09-2024
+ */
 @RestController
 @RequestMapping("/doctic/v1/categorias")
 public class CategoriaController {

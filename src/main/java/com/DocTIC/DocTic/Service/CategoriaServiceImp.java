@@ -9,6 +9,14 @@ import com.DocTIC.DocTic.Exception.RecursoNoEncontradoException;
 import com.DocTIC.DocTic.Model.CategoriaModel;
 import com.DocTIC.DocTic.Repository.ICategoriaRepository;
 
+/**
+ * [CategoriaServiceImp]
+ * 
+ * Esta clase implementa la interfaz [ICategoriaService] y se encarga de la lógica de negocio relacionada con la gestión de categorías. Proporciona los métodos necesarios para realizar las operaciones CRUD sobre las categorías. 
+ * 
+ * 28-09-2024
+ */
+
 @Service
 public class CategoriaServiceImp implements ICategoriaService{
     @Autowired ICategoriaRepository categoriaRepository;
@@ -46,14 +54,20 @@ public class CategoriaServiceImp implements ICategoriaService{
 
     }
         
-
     @Override
     public String eliminarCategoriaPorId(int categoriaId){
 
         Optional<CategoriaModel> categoria = categoriaRepository.findById(categoriaId);
 
         if (categoria.isPresent()) {
-            
+
+            List<CategoriaModel> subCategorias = categoriaRepository.findBySubIdCategoria(categoriaId);
+
+            if (subCategorias.size() >= 1) {
+                for (CategoriaModel subCategoria : subCategorias) {
+                    categoriaRepository.deleteById(subCategoria.getIdCategoria());
+                }                                
+            }
             categoriaRepository.deleteById(categoriaId);
             return "Éxito al eliminar la categoría con ID " + categoriaId;
            
