@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.DocTIC.DocTic.Exception.ConflictoDatosExcepcion;
 import com.DocTIC.DocTic.Exception.RecursoNoEncontradoException;
 import com.DocTIC.DocTic.Model.ComentarioModel;
 import com.DocTIC.DocTic.Service.IComentarioService;
@@ -30,8 +31,12 @@ public class ComentarioController {
     @Autowired IComentarioService comentarioService;
     
     @PostMapping("/insertar")
-    public ResponseEntity<String> guardarComentario(@RequestBody ComentarioModel comentario){
-        return new ResponseEntity<String>(comentarioService.crearComentario(comentario), HttpStatus.OK);
+    public ResponseEntity<String> guardarComentario(@RequestBody ComentarioModel comentario) {
+        try {
+            return new ResponseEntity<>(comentarioService.crearComentario(comentario), HttpStatus.OK);
+        } catch (ConflictoDatosExcepcion e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
+        }
     }
 
     @GetMapping("/obtener/{id}")

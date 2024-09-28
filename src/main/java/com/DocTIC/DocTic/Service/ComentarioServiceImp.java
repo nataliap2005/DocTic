@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.DocTIC.DocTic.Exception.ConflictoDatosExcepcion;
 import com.DocTIC.DocTic.Exception.RecursoNoEncontradoException;
 import com.DocTIC.DocTic.Model.ComentarioModel;
 import com.DocTIC.DocTic.Repository.IComentarioRepository;
@@ -26,8 +27,34 @@ public class ComentarioServiceImp implements IComentarioService{
     
     @Override
     public String crearComentario(ComentarioModel comentario) {
-        comentarioRepository.save(comentario);
-        return "El comentario se creó con éxito ID: " + comentario.getIdComentario();
+
+        if(comentario.getIdComentario() == null){
+            
+            List<ComentarioModel> comentarios = comentarioRepository.findAll();
+
+            if (comentarios.isEmpty()) {
+                comentario.setIdComentario(1);
+                                                
+            }else{
+                Integer lastIdInDb = comentarios.getLast().getIdComentario(); 
+                comentario.setIdComentario(lastIdInDb+1); 
+            }        
+            comentarioRepository.save(comentario);
+            return "El comentario se creó con éxito ID: " + comentario.getIdComentario();
+
+     
+        }else{
+            try {
+                System.out.println("--- Intentando");
+                comentarioRepository.save(comentario);
+                return "El comentario se creó con éxito ID: " + comentario.getIdComentario();
+
+            } catch (Exception e) {
+                System.out.println("--- tipo de exception: " + e.getClass().toString());
+
+                throw new ConflictoDatosExcepcion("¡Error! No se pudo crear el comentario con ID " + comentario.getIdComentario() + ". Es posible que el ID del comentario sea igual subIdComentario.");
+            }    
+        }
     }
 
     @Override

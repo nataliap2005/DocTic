@@ -2,10 +2,10 @@ package com.DocTIC.DocTic.Model;
 
 import java.time.LocalDate;
 
+import org.springframework.data.annotation.Transient;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -29,7 +29,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ComentarioModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idComentario;
 
     @Column(name = "subIdComentario", nullable = true)
@@ -51,5 +50,6 @@ public class ComentarioModel {
 
     @ManyToOne
     @JoinColumn(name = "subIdComentario", insertable = false, updatable = false)
+    @Transient
     private ComentarioModel comentarioPadre;
 }
