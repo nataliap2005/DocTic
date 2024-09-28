@@ -1,8 +1,6 @@
 package com.DocTIC.DocTic.Model;
 
 import com.DocTIC.DocTic.Model.ENUM.EstadoDocumento;
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -10,11 +8,20 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "documento")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+
 public class DocumentoModel {
 
     @Id
@@ -25,9 +32,8 @@ public class DocumentoModel {
     @Column(name = "descripcion")
     private String descripcion;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @Column(name = "fechaPub")
-    private Date fechaPub;
+    private LocalDate fechaPub;
 
     @Column(name = "nombre")
     private String nombre;
@@ -39,52 +45,7 @@ public class DocumentoModel {
     @Enumerated(EnumType.STRING)
     private EstadoDocumento estado;
 
-     // getter and setter para arreglar el error
-    public String getNombre() {
-        return nombre;
-    }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-    public int getIdDocumento() {
-        return idDocumento;
-    }
-
-    public void setIdDocumento(int idDocumento) {
-        this.idDocumento = idDocumento;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public Date getFechaPub() {
-        return fechaPub;
-    }
-
-    public void setFechaPub(Date fechaPub) {
-        this.fechaPub = fechaPub;
-    }
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public EstadoDocumento getEstado() {
-        return estado;
-    }
-
-    public void setEstado(EstadoDocumento estado) {
-        this.estado = estado;
-    }
-
-
-    
+    @ManyToOne
+    @JoinColumn(name = "idCategoria", nullable = true)
+    private CategoriaModel categoria;
 }

@@ -61,6 +61,7 @@ public class DocumentoServiceImp implements IDocumentoService {
             documento.setEstado(documentoNuevo.getEstado());
             documento.setUrl(documentoNuevo.getUrl());
             documento.setFechaPub(documentoNuevo.getFechaPub());
+            documento.setCategoria(documentoNuevo.getCategoria());
             return documentoRepository.save(documento); // Devolvemos el documento actualizado
         } else {
             throw new RecursoNoEncontradoException("Documento no encontrado con ID: " + documentoId);
