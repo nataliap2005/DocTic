@@ -9,10 +9,7 @@ public interface IContrasenaService {
     ContrasenaModel obtenerHistContrasena (int historialContrasenaId);
 
     List <ContrasenaModel> listarHistorialContrasena();
-
-    String editarHistContrasena(ContrasenaModel historialContrasena);
     
-    void eliminarHistContrasenaPorId(int historialContrasenaId);
 }
 
 

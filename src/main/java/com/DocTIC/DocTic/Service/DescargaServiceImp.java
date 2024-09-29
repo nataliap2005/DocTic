@@ -30,16 +30,7 @@ public class DescargaServiceImp implements IDescargaService {
     public List<DescargaModel> listarDescargas(){
         return descargaRepository.findAll();
     }
-    @Override 
-    public String editarDescarga(DescargaModel descarga){
-        Optional<DescargaModel> descargaEncontrada = descargaRepository.findById(descarga.getIdDescarga());
-        if (descargaEncontrada.isPresent()) {
-            descargaRepository.save(descarga);
-            return "Se actualizó la descarga por el ID"+descarga.getIdDescarga();
-        } else {
-            throw new RecursoNoEncontradoException("No se encontró la descarga con ID "+ descarga.getIdDescarga() + " .Intentar de nuevo.");
-        }
-    }
+  
     @Override 
     public String eliminarDescargaPorId(int idDescarga){
         Optional<DescargaModel> descarga = descargaRepository.findById(idDescarga);

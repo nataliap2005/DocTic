@@ -35,21 +35,7 @@ public class ContrasenaImp implements IContrasenaService {
         return historialcontrasenaRepository.findAll();
     
     }
-    @Override
-    public String editarHistContrasena(ContrasenaModel hcontrasena){
-        Optional<ContrasenaModel> HistorialContrasenaEcontrado = historialcontrasenaRepository.findById(hcontrasena.getIdHistorial());
-
-        if (HistorialContrasenaEcontrado.isPresent()){
-            historialcontrasenaRepository.save(hcontrasena);
-            return "El historial contraseña con ID "+ hcontrasena.getIdHistorial()+" fue editado con exito";
-        } else{
-            throw new RecursoNoEncontradoException("El historial de contraseña con ID " + hcontrasena.getIdHistorial() +" no se encuentra en la base de datos o es erróneo." );
-        }
-    }
-    @Override
-    public void eliminarHistContrasenaPorId(int historialContrasenaId) {
-        historialcontrasenaRepository.deleteById(historialContrasenaId);
-    }   
+   
 }
 
 

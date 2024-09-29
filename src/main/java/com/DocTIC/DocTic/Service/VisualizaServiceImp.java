@@ -32,17 +32,6 @@ public class VisualizaServiceImp implements IVisualizaService {
         return visualizaRepository.findAll();
     }
 
-    @Override
-    public String editarVisualizacion(VisualizaModel visualiza){
-        Optional<VisualizaModel> visualizacionEditada = visualizaRepository.findById(visualiza.getIdVisualiza());
-
-        if (visualizacionEditada.isPresent()) {
-            visualizaRepository.save(visualiza);
-            return "La visualización con ID " + visualiza.getIdVisualiza() + " fue actualizada con éxito.";
-        } else {
-            throw new RecursoNoEncontradoException("¡Error! No se encontró una visualización con el ID " + visualiza.getIdVisualiza() + ". Verifique el ID que está ingresando.");
-        }
-    }
 
     @Override
 public String eliminarVisualizacionPorId(int idVisualiza) {

@@ -11,7 +11,5 @@ public interface IVisualizaService {
 
     List<VisualizaModel> listarVisualizaciones();
 
-    String editarVisualizacion(VisualizaModel visualiza);
-
     String eliminarVisualizacionPorId(int idVisualiza);
 }

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,10 +43,6 @@ public class VisualizaController {
         return new ResponseEntity<List<VisualizaModel>>(visualizaService.listarVisualizaciones(),HttpStatus.OK);
     }
 
-    @PutMapping("/editar")
-    public ResponseEntity<String> editarVisualizacion(@RequestBody VisualizaModel VisualizaModel){
-        return new ResponseEntity<String>(visualizaService.editarVisualizacion(VisualizaModel),HttpStatus.OK);
-    }
 
     @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<String> eliminarVisualizaciones(@PathVariable int id){

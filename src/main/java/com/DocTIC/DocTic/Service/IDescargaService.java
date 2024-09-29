@@ -10,7 +10,5 @@ public interface IDescargaService {
 
     List<DescargaModel> listarDescargas();
 
-    String editarDescarga(DescargaModel descarga);
-
     String eliminarDescargaPorId(int idDescarga);
 }
