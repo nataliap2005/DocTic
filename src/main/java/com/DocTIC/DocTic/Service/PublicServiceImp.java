@@ -39,7 +39,7 @@ public class PublicServiceImp implements IPublicaService  {
             publicaRepository.save(publica);
             return "Se actualizó la publicación por el ID"+ publica.getIdPublica();
         } else {
-            throw new RecursoNoEncontradoException("No se encontro la publuicación con ID " + publica.getIdPublica() + " .Intente de nuevo.");
+            throw new RecursoNoEncontradoException("No se encontro la publicación con ID " + publica.getIdPublica() + " .Intente de nuevo.");
         }
     }
     @Override
