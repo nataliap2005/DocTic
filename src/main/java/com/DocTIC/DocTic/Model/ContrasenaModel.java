@@ -19,7 +19,7 @@ import java.time.LocalDate;
 
 
 @Entity
-@Table(name= "historial_contraseña")
+@Table(name= "contraseña")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
