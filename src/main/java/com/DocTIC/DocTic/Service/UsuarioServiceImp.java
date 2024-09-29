@@ -46,7 +46,7 @@ public class UsuarioServiceImp implements IUsuarioService {
             usuario.setRespuestaSecreta(usuarioNuevo.getRespuestaSecreta());   
             usuarioRepository.save(usuario);
 
-            return "El usuario con id "+usuarioNuevo.getIdUsuario()+" fue editado con exito"; 
+            return "El usuario con id "+usuarioId+" fue editado con exito"; 
         } else {
             return null;
         }

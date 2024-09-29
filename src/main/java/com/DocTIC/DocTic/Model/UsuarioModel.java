@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -51,20 +52,26 @@ public class UsuarioModel {
     private String respuestaSecreta;
 
     @OneToMany(mappedBy = "idValora", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Transient
     private List<ValoraModel> valoraciones;
 
+    @Transient
     @OneToMany(mappedBy = "idComentario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ComentarioModel> comentarios;
-
+    
+    @Transient
     @OneToMany(mappedBy = "idPublica", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PublicaModel> publicaciones;
 
+    @Transient
     @OneToMany(mappedBy = "idDescarga", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DescargaModel> descargas;
-
+    
+    @Transient
     @OneToMany(mappedBy = "idHistorial", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContrasenaModel> contrasenas;
 
+    @Transient
     @OneToMany(mappedBy = "idVisualiza", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<VisualizaModel> visualizaciones;
 }
