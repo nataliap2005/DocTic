@@ -67,9 +67,4 @@ public class UsuarioModel {
 
     @OneToMany(mappedBy = "idVisualiza", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<VisualizaModel> visualizaciones;
-
-    
-
-
-
 }
