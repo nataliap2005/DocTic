@@ -9,6 +9,8 @@ public interface IContrasenaService {
     ContrasenaModel obtenerHistContrasena (int historialContrasenaId);
 
     List <ContrasenaModel> listarHistorialContrasena();
+
+    void actualizarContrasenaInactiva(int idUsuario, int idHistorial);
     
 }
 
