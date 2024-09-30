@@ -1,7 +1,6 @@
 package com.DocTIC.DocTic.Service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.stereotype.Service;
@@ -69,6 +68,8 @@ public class ValoraServiceImp implements IValoraService{
        return "Exito al eliminar la valoración con ID "+  valoracionId;
     }
 
-   
-    
+    @Override
+    public List<ValoraModel> findValoracionByUsuario(int idUsuario){
+        return valoraRepository.findValoracionByUsuario(idUsuario);
+    }
 }

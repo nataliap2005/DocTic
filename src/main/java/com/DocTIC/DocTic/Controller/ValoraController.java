@@ -90,4 +90,9 @@ public class ValoraController {
         }
                
     }
+
+    @GetMapping("/obtener/usuario/{id}")
+    public ResponseEntity<?> getValoracionByUsuario(@PathVariable int id){
+        return ResponseEntity.ok(valoraService.findValoracionByUsuario(id));
+    }
 }

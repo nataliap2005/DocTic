@@ -68,5 +68,9 @@ public class VisualizaController {
         List<Map<String, Object>> visualizaciones = visualizaService.getVisualizacionesByUsuario(idUsuario);
         return ResponseEntity.ok(visualizaciones);
     }
+    @DeleteMapping("eliminar/all/usuario/{id}")
+    public ResponseEntity<?> deleteAllByUser(@PathVariable int id){
+        return ResponseEntity.ok(visualizaService.eliminarVisualizacionByUsuario(id));
+    }
 }
 

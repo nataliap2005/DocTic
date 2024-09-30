@@ -18,4 +18,6 @@ public interface IVisualizaService {
 
     List<Map<String, Object>> getVisualizacionesByUsuario(int idUsuario);
 
+    String eliminarVisualizacionByUsuario(int idUsuario);
+
 }

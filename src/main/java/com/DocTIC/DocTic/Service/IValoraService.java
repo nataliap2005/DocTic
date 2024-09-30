@@ -16,4 +16,5 @@ public interface IValoraService {
 
     String eliminarValoracion(int valoracionId);
     
+    List<ValoraModel> findValoracionByUsuario(int idUsuario);    
 }

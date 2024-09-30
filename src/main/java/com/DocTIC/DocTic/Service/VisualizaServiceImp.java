@@ -70,5 +70,19 @@ public String eliminarVisualizacionPorId(int idVisualiza) {
 
         return response;
     }
+
+    @Override
+    public String eliminarVisualizacionByUsuario(int idUsuario) {
+        List<Integer> ids = new ArrayList<>();
+
+        for (VisualizaModel valoracion : visualizaRepository.findAllVisualizacionesByUsuario(idUsuario)) {
+            ids.add(valoracion.getIdVisualiza());
+        }
+
+        visualizaRepository.deleteAllById(ids);
+
+        return "Se eliminó el historial de visualizaciones del usuario con ID "+ idUsuario;
+    }
+
  }
         

@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
 import com.DocTIC.DocTic.Model.VisualizaModel;
 
 @Repository
@@ -36,4 +37,9 @@ public interface IVisualizaRepository extends JpaRepository <VisualizaModel, Int
            "JOIN v.usuario u " +
            "WHERE u.idUsuario = :idUsuario")
     List<Object[]> findVisualizacionesByUsuario(@Param("idUsuario") int idUsuario);
+
+    @Query("SELECT v FROM VisualizaModel v WHERE v.usuario.idUsuario = :idUsuario")
+    List<VisualizaModel> findAllVisualizacionesByUsuario(@Param("idUsuario") int idUsuario);
+
+
 }

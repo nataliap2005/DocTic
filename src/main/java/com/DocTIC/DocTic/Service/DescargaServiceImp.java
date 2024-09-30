@@ -1,6 +1,7 @@
 package com.DocTIC.DocTic.Service;
 
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,5 +47,19 @@ public class DescargaServiceImp implements IDescargaService {
     @Override
     public List<DescargaModel> obtenerDescargasPorUsuario(int idUsuario){
         return descargaRepository.findDescargasByUsuario(idUsuario);
+    }
+
+    @Override
+    public String eliminarDescargasUsuario(int idUsuario) {
+        
+         List<Integer> ids = new ArrayList<>();
+
+        for (DescargaModel descarga : descargaRepository.findDescargasByUsuario(idUsuario)) {
+            ids.add(descarga.getIdDescarga());
+        }
+
+        descargaRepository.deleteAllById(ids);
+
+        return "Se eliminó el historial de descargas del usuario con ID " + idUsuario;
     }
 }
