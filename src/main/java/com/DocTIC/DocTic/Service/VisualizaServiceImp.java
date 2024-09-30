@@ -13,6 +13,23 @@ import com.DocTIC.DocTic.Exception.RecursoNoEncontradoException;
 import com.DocTIC.DocTic.Model.VisualizaModel;
 import com.DocTIC.DocTic.Repository.IVisualizaRepository;
 
+/**
+ * [VisualizaServiceImp]
+ * 
+ *Se define la clase `VisualizaServiceImp`, que implementa la interfaz `IVisualizaService` 
+ *y se encarga de gestionar las operaciones relacionadas con las visualizaciones en la aplicación DocTIC, 
+ *utilizando el repositorio `IVisualizaRepository` para interactuar con la base de datos. 
+ *La clase incluye métodos para insertar una nueva visualización, 
+ *buscar una visualización por su ID (lanzando una excepción si no se encuentra), listar todas las visualizaciones 
+ *y eliminar una visualización por su ID, también manejando excepciones en caso de que no exista. 
+ *Además, proporciona un método para obtener las visualizaciones realizadas por un usuario específico, 
+ *retornando los resultados en un formato de lista de mapas que contiene detalles como el nombre del usuario, 
+ *el nombre del documento, la fecha y la hora de la visualización. La clase está anotada con `@Service`, 
+ *lo que indica que es un componente de servicio dentro del contexto de Spring.
+ *
+ * 27-09-2024
+ */
+
 @Service
 
 public class VisualizaServiceImp implements IVisualizaService {

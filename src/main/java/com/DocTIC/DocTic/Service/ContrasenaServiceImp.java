@@ -13,6 +13,20 @@ import com.DocTIC.DocTic.Exception.RecursoNoEncontradoException;
 import com.DocTIC.DocTic.Model.ContrasenaModel;
 import com.DocTIC.DocTic.Repository.IContrasenaRepository;
 
+/**
+ * [ContrasenaServiceImp]
+ * 
+ * Esta clase ContrasenaServiceImp es una implementación del servicio de contraseñas que gestiona el historial de 
+ * contraseñas de los usuarios en la aplicación DocTIC. Utiliza JdbcTemplate para ejecutar procedimientos almacenados 
+ * y el repositorio IContrasenaRepository para interactuar con la base de datos. 
+ * Ofrece métodos para actualizar contraseñas inactivas, insertar un nuevo historial de contraseñas, 
+ * obtener un historial específico de contraseña, listar todo el historial, 
+ * y generar una respuesta personalizada con el historial de contraseñas de un usuario determinado. 
+ * Además, maneja excepciones cuando los recursos no se encuentran, asegurando un manejo adecuado de errores.
+ * 
+ * 25-09-2024
+ */
+
 @Service
 public class ContrasenaServiceImp implements IContrasenaService {
     @Autowired IContrasenaRepository contrasenaRepository;
