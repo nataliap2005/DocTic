@@ -19,6 +19,16 @@ import com.DocTIC.DocTic.Exception.RecursoNoEncontradoException;
 import com.DocTIC.DocTic.Model.ValoraModel;
 import com.DocTIC.DocTic.Service.IValoraService;
 
+/**
+ * [ValoraController]
+ * 
+ * Este controlador gestiona todas las operaciones relacionadas con la entidad ValoraModel, 
+ * que representa las valoraciones hechas por los usuarios en la aplicación DocTIC.
+ * Proporciona endpoints REST para insertar, obtener, editar y eliminar valoraciones.
+ * 
+ * 28-09-2024
+ * **/
+
 @RestController
 @RequestMapping("/doctic/v1/valoraciones")
 public class ValoraController {

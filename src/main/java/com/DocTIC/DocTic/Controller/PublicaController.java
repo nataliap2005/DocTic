@@ -17,6 +17,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.DocTIC.DocTic.Exception.RecursoNoEncontradoException;
 import com.DocTIC.DocTic.Model.PublicaModel;
 import com.DocTIC.DocTic.Service.IPublicaService;
+/**
+ * [PublicaController]
+ * 
+ * Este controlador gestiona todas las operaciones relacionadas con la entidad Publica,
+ * que representa la publicación de documentos por los usuarios en la aplicación DocTIC.
+ * Proporciona endpoints REST para insertar, obtener, listar, editar y eliminar publicaciones.
+ * 
+ * 28-09-2024
+ * */
 
 @RestController
 @RequestMapping("/doctic/v1/publica")

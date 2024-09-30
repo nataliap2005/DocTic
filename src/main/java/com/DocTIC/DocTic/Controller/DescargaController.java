@@ -17,6 +17,17 @@ import org.springframework.web.bind.annotation.RestController;
 import com.DocTIC.DocTic.Model.DescargaModel;
 import com.DocTIC.DocTic.Service.IDescargaService;
 
+
+/**
+ * [DescargaController]
+ * 
+ * Este controlador gestiona todas las operaciones relacionadas con las descargas
+ * en la aplicación DocTIC. Proporciona endpoints REST para insertar, obtener,
+ * listar y eliminar descargas de documentos por parte de los usuarios.
+ * 
+ * 29-09-2024
+ *  */
+
 @RestController
 @RequestMapping("/doctic/v1/descarga")
 public class DescargaController {

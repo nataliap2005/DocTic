@@ -18,6 +18,18 @@ import com.DocTIC.DocTic.Exception.RecursoNoEncontradoException;
 import com.DocTIC.DocTic.Model.VisualizaModel;
 import com.DocTIC.DocTic.Service.IVisualizaService;
 
+/**
+ * [VisualizaController]
+ * 
+ * Este controlador gestiona todas las operaciones relacionadas con la entidad VisualizaModel,
+ * que representa las visualizaciones de documentos por parte de los usuarios en la aplicación DocTIC.
+ * Proporciona endpoints REST para insertar, obtener, listar y eliminar visualizaciones, así como
+ * para obtener visualizaciones específicas por usuario.
+ * 
+ * 29-09-2024
+ * 
+ * **/
+
 @RestController
 @RequestMapping("/doctic/v1/visualiza")
 public class VisualizaController {
@@ -49,13 +61,7 @@ public class VisualizaController {
     public ResponseEntity<String> eliminarVisualizaciones(@PathVariable int id){
         return new ResponseEntity<String>(visualizaService.eliminarVisualizacionPorId(id),HttpStatus.OK);
     }
-    /* 
-    @GetMapping("/usuario/{id}")
-    public ResponseEntity<List<VisualizaModel>> obtenerVisualizacionesPorUsuario(@PathVariable("id") int idUsuario) {
-    List<VisualizaModel> visualizaciones = visualizaService.obtenerVisualizacionesPorUsuario(idUsuario);
-    return ResponseEntity.ok(visualizaciones);
-    */
-
+    
 
     @GetMapping("/usuario/{id}")
     public ResponseEntity<List<Map<String, Object>>> getVisualizacionesByUsuario(@PathVariable("id") int idUsuario) {
