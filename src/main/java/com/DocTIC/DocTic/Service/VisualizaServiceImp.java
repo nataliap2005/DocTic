@@ -1,6 +1,9 @@
 package com.DocTIC.DocTic.Service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,5 +47,28 @@ public String eliminarVisualizacionPorId(int idVisualiza) {
         throw new RecursoNoEncontradoException("¡Error! No se encontró una visualización con ID " + idVisualiza + ".");
     }
 }
-}
+
+// @Override
+//     public List<VisualizaModel> obtenerVisualizacionesPorUsuario(int idUsuario) {
+//         return visualizaRepository.findVisualizacionesByUsuario(idUsuario);
+//     }
+
+
+ @Override
+    public List<Map<String, Object>> getVisualizacionesByUsuario(int idUsuario) {
+        List<Object[]> results = visualizaRepository.findVisualizacionesByUsuario(idUsuario);
+        List<Map<String, Object>> response = new ArrayList<>();
+
+        for (Object[] row : results) {
+            Map<String, Object> data = new HashMap<>();
+            data.put("nombreUsuario", row[0]);
+            data.put("nombreDocumento", row[1]);
+            data.put("fecha", row[2]);
+            data.put("hora", row[3]);
+            response.add(data);
+        }
+
+        return response;
+    }
+ }
         

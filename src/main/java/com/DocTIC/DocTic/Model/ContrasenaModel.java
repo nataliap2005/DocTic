@@ -19,7 +19,7 @@ import java.time.LocalDate;
 
 
 @Entity
-@Table(name= "contraseña")
+@Table(name= "contrasena")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -34,8 +34,8 @@ public class ContrasenaModel {
     @JoinColumn(name="idUsuario")
     private UsuarioModel usuario;
 
-    @Column(name = "contraseña")
-    private String contraseña;
+    @Column(name = "contrasena")
+    private String contrasena;
 
     @Column(name= "fecha")
     private LocalDate fecha;

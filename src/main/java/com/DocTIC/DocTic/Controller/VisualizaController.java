@@ -1,6 +1,7 @@
 package com.DocTIC.DocTic.Controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -48,4 +49,18 @@ public class VisualizaController {
     public ResponseEntity<String> eliminarVisualizaciones(@PathVariable int id){
         return new ResponseEntity<String>(visualizaService.eliminarVisualizacionPorId(id),HttpStatus.OK);
     }
+    /* 
+    @GetMapping("/usuario/{id}")
+    public ResponseEntity<List<VisualizaModel>> obtenerVisualizacionesPorUsuario(@PathVariable("id") int idUsuario) {
+    List<VisualizaModel> visualizaciones = visualizaService.obtenerVisualizacionesPorUsuario(idUsuario);
+    return ResponseEntity.ok(visualizaciones);
+    */
+
+
+    @GetMapping("/usuario/{id}")
+    public ResponseEntity<List<Map<String, Object>>> getVisualizacionesByUsuario(@PathVariable("id") int idUsuario) {
+        List<Map<String, Object>> visualizaciones = visualizaService.getVisualizacionesByUsuario(idUsuario);
+        return ResponseEntity.ok(visualizaciones);
+    }
 }
+
