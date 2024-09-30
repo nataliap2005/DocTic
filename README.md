@@ -11,7 +11,7 @@
 DocTIC es una API REST diseñada para la gestión de documentos y usuarios en una plataforma colaborativa. Los usuarios pueden subir, visualizar, y valorar documentos, así como gestionar su historial de visualizaciones y descargas. La API proporciona endpoints para realizar operaciones CRUD sobre entidades como usuarios, documentos, valoraciones, y visualizaciones, permitiendo una gestión robusta y eficiente de la información.
 
 ## Requisitos Previos
-- **Java 22+**: Asegúrate de tener instalado JDK 22 o superior.
+- **Java 22**: Asegúrate de tener instalado JDK 22.
 - **MySQL Workbench 8.0**: El sistema está diseñado para interactuar con una base de datos MySQL.
 - **Maven**: Para gestionar las dependencias y construir el proyecto.
 
@@ -20,7 +20,7 @@ DocTIC es una API REST diseñada para la gestión de documentos y usuarios en un
 1. **Clonar el repositorio:**
    ```bash
    git clone <url-del-repo>
-   cd doctic-backend
+   cd path_repo
 
 ## MER
 ![image](https://github.com/user-attachments/assets/6424272c-fd93-4376-9d65-031021664712)
@@ -32,5 +32,4 @@ DocTIC es una API REST diseñada para la gestión de documentos y usuarios en un
 
 ### Nota adicional:
 Se destaca que el proyecto contiene **comentarios Javadoc** en el código, lo que ayuda a entender mejor la lógica y la estructura del sistema directamente desde el código fuente.
-
 
