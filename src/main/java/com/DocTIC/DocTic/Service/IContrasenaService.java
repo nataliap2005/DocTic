@@ -11,6 +11,9 @@ public interface IContrasenaService {
 
     List <ContrasenaModel> listarHistorialContrasena();
 
+    void actualizarContrasenaInactiva(int idUsuario, int idHistorial);
+    
+
     // List<ContrasenaModel> obtenerHistorialContrasenasPorUsuario(int idUsuario);
     List<Map<String, Object>> getHistorialContrasenasByUsuario(int idUsuario);
     

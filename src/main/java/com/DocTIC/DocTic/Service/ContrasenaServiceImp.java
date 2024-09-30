@@ -1,6 +1,7 @@
 package com.DocTIC.DocTic.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 import java.util.ArrayList;
@@ -15,12 +16,21 @@ import com.DocTIC.DocTic.Repository.IContrasenaRepository;
 @Service
 public class ContrasenaServiceImp implements IContrasenaService {
     @Autowired IContrasenaRepository contrasenaRepository;
+     @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    @Override
+    public void actualizarContrasenaInactiva(int idUsuario, int idHistorial) {
+        String sql = "CALL actualizarContrasenaInactiva(?, ?)";
+        jdbcTemplate.update(sql, idUsuario, idHistorial);
+    }
 
 
     @Override
     public String insertarhistorialContrasena(ContrasenaModel historialContrasenaData){
 
         contrasenaRepository.save(historialContrasenaData);
+        actualizarContrasenaInactiva(historialContrasenaData.getUsuario().getIdUsuario(), historialContrasenaData.getIdHistorial());
 
         return "Éxito al guardar el historial de contraseña, ID " + historialContrasenaData.getIdHistorial();
     };
