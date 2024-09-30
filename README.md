@@ -3,7 +3,7 @@
 ### Integrantes del equipo:
 - Natalia Paredes
 - Mariana Cifuentes
-- Maria Jose Suarez
+- Maria Jose Suárez
 - John David Franco
 
 ## Descripción del Proyecto
@@ -11,7 +11,7 @@
 DocTIC es una API REST diseñada para la gestión de documentos y usuarios en una plataforma colaborativa. Los usuarios pueden subir, visualizar, y valorar documentos, así como gestionar su historial de visualizaciones y descargas. La API proporciona endpoints para realizar operaciones CRUD sobre entidades como usuarios, documentos, valoraciones, y visualizaciones, permitiendo una gestión robusta y eficiente de la información.
 
 ## Requisitos Previos
-- **Java 11+**: Asegúrate de tener instalado JDK 11 o superior.
+- **Java 22+**: Asegúrate de tener instalado JDK 22 o superior.
 - **MySQL 8.0+**: El sistema está diseñado para interactuar con una base de datos MySQL.
 - **Maven**: Para gestionar las dependencias y construir el proyecto.
 
