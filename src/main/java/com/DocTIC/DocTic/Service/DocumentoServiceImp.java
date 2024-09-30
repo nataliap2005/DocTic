@@ -10,6 +10,18 @@ import com.DocTIC.DocTic.Exception.RecursoNoEncontradoException;
 import com.DocTIC.DocTic.Model.DocumentoModel;
 import com.DocTIC.DocTic.Repository.IDocumentoRepository;
 
+/**
+ * [DocumentoServiceImp]
+ * 
+ *Se define la clase `DocumentoServiceImp` que implementa la interfaz `IDocumentoService`. 
+ *Esta clase proporciona métodos para la gestión de documentos, tales como crear, listar, buscar por ID, guardar, editar 
+ *y eliminar documentos. Se utiliza el repositorio `IDocumentoRepository` para interactuar con la base de datos 
+ *y se lanza la excepción `RecursoNoEncontradoException` cuando no se encuentra un documento solicitado. 
+ *Además, se emplea la inyección de dependencias con `@Autowired` para gestionar el repositorio. 
+ * 
+ * 26-09-2024
+ */
+
 @Service
 public class DocumentoServiceImp implements IDocumentoService {
 

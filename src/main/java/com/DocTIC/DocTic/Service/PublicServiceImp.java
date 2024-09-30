@@ -10,6 +10,21 @@ import com.DocTIC.DocTic.Exception.RecursoNoEncontradoException;
 import com.DocTIC.DocTic.Model.PublicaModel;
 import com.DocTIC.DocTic.Repository.IPublicaRepository;
 
+/**
+ * [PublicServiceImp]
+ * 
+ *Se define una clase de servicio llamada `PublicServiceImp`, que implementa la interfaz `IPublicaService`
+ *para gestionar operaciones relacionadas con las publicaciones en la aplicación DocTIC. 
+ *Se utiliza la anotación `@Service` para indicar que es un componente de servicio dentro del contexto de Spring. 
+ *La clase inyecta un repositorio (`IPublicaRepository`) mediante la anotación `@Autowired`, 
+ *lo que le permite realizar operaciones de acceso a datos. 
+ *Incluye métodos para insertar (`insertarPublica`), buscar (`buscarPublicaPorId`), listar (`listarPublicaciones`), 
+ *editar (`editarPublica`) y eliminar (`eliminarPublicaPorId`) publicaciones, 
+ *manejando excepciones específicas como `RecursoNoEncontradoException` para situaciones donde no se encuentra una publicación con el ID especificado.
+ * 
+ * 27-09-2024
+ */
+
 @Service
 
 public class PublicServiceImp implements IPublicaService  {

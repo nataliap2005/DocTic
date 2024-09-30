@@ -10,6 +10,19 @@ import com.DocTIC.DocTic.Exception.RecursoNoEncontradoException;
 import com.DocTIC.DocTic.Model.DescargaModel;
 import com.DocTIC.DocTic.Repository.IDescargaRepository;
 
+/**
+ * [DescargaServiceImp]
+ * 
+ *Se define la implementación del servicio DescargaServiceImp, 
+ *que maneja la lógica relacionada con las descargas de documentos en la aplicación DocTIC. 
+ *Utiliza el repositorio IDescargaRepository para interactuar con la base de datos mediante las operaciones CRUD. 
+ *El servicio permite insertar una nueva descarga, buscar una descarga por su ID, listar todas las descargas 
+ *y eliminar una descarga por su ID. Si no se encuentra una descarga, lanza la excepción personalizada RecursoNoEncontradoException, 
+ *proporcionando mensajes específicos para cada caso de error.
+ * 
+ * 25-09-2024
+ */
+
 @Service
 
 public class DescargaServiceImp implements IDescargaService {

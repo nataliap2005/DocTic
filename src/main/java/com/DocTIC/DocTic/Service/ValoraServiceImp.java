@@ -10,6 +10,20 @@ import com.DocTIC.DocTic.Exception.RecursoNoEncontradoException;
 import com.DocTIC.DocTic.Model.ValoraModel;
 import com.DocTIC.DocTic.Repository.IValoraRepository;
 
+/**
+ * [ValoraServiceImp]
+ * 
+ *Se define el servicio `ValoraServiceImp`, que implementa la interfaz `IValoraService` para gestionar las valoraciones en la aplicación DocTIC. 
+ *Se utiliza la anotación `@Service` para indicar que es un componente de servicio, y se inyecta automáticamente una instancia de `IValoraRepository` 
+ *para interactuar con la base de datos. El servicio ofrece métodos para crear, obtener, editar y eliminar valoraciones. 
+ *Al intentar crear o editar una valoración, se manejan excepciones para capturar conflictos de datos mediante `JpaSystemException`, 
+ *lanzando excepciones personalizadas como `ConflictoDatosExcepcion` o `RecursoNoEncontradoException` 
+ *cuando se producen errores o se intenta acceder a valoraciones que no existen. 
+ *Además, el servicio permite la recuperación de todas las valoraciones existentes.
+ *
+ * 27-09-2024
+ */
+
 
 @Service
 public class ValoraServiceImp implements IValoraService{
