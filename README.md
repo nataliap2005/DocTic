@@ -21,7 +21,21 @@ DocTIC es una API REST diseñada para la gestión de documentos y usuarios en un
    ```bash
    git clone <url-del-repo>
    cd path_repo
+   git checkout master
 
+2. **Descargar la base de datos y ejecutar el script**
+   
+   **Nota:** El script es **doctic.sql**. Lo podrá encontrar en la parte supeior de este sitio.
+
+ 
+4. **Realizar las pruebas de la API REST usando Postman como cliente**
+   
+   https://app.getpostman.com/join-team?invite_code=d94849600ec8d628649d91c217675a3a&target_code=67e9d0f32f90d6d7cc244b6bd6d3d03c
+
+   **Nota:** Deberá solicitar el acceso a la colección de Postman.
+
+
+   
 ## MER
 ![image](https://github.com/user-attachments/assets/6424272c-fd93-4376-9d65-031021664712)
 
