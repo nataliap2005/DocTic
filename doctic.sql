@@ -1,3 +1,6 @@
+CREATE SCHEMA IF NOT EXISTS doctic;
+USE doctic;
+
 CREATE TABLE usuario (
     idUsuario INT PRIMARY KEY AUTO_INCREMENT,
     numDocumento INT UNIQUE NOT NULL,
