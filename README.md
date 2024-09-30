@@ -27,6 +27,8 @@ DocTIC es una API REST diseñada para la gestión de documentos y usuarios en un
    
    **Nota:** El script es **doctic.sql**. Lo podrá encontrar en la parte supeior de este sitio.
 
+3. **Ejecutar el archivo DocTicApplication.java**
+
  
 4. **Realizar las pruebas de la API REST usando Postman como cliente**
    
