@@ -17,6 +17,21 @@ import com.DocTIC.DocTic.Exception.RecursoNoEncontradoException;
 import com.DocTIC.DocTic.Model.ContrasenaModel;
 import com.DocTIC.DocTic.Service.IContrasenaService;
 
+/**
+ * [ContrasenaController]
+ * 
+ * Este controlador gestiona las operaciones relacionadas con el historial de contraseñas
+ * de los usuarios. Permite insertar, obtener, y listar contraseñas, así como realizar consultas
+ * específicas sobre el historial de contraseñas de un usuario.
+ * 
+ * Endpoints disponibles:
+ * - POST /insertar: Inserta una nueva entrada en el historial de contraseñas.
+ * - GET /obtener/{id}: Obtiene una entrada del historial de contraseñas por su ID.
+ * - GET /listar: Obtiene todas las entradas del historial de contraseñas.
+ * - GET /historial/{id}: Consulta el historial de contraseñas de un usuario específico.
+ * 
+ * 29-09-2024
+ */
 @RestController
 @RequestMapping("/doctic/v1/contrasena")
 

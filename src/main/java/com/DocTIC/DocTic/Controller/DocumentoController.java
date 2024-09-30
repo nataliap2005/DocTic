@@ -16,7 +16,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.DocTIC.DocTic.Exception.RecursoNoEncontradoException;
 import com.DocTIC.DocTic.Model.DocumentoModel;
 import com.DocTIC.DocTic.Service.IDocumentoService;
-
+/**
+ * [DocumentoController]
+ * 
+ * Este controlador gestiona todas las operaciones relacionadas con los documentos
+ * en la aplicación DocTIC. Proporciona endpoints REST para crear, obtener, editar,
+ * listar y eliminar documentos.
+ * 
+ *  25-09-2024
+ * **/
 @RestController
 @RequestMapping("/doctic/v1/documentos")
 public class DocumentoController {

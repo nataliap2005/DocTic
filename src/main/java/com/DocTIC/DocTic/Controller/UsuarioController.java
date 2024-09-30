@@ -17,6 +17,15 @@ import com.DocTIC.DocTic.Exception.RecursoNoEncontradoException;
 import com.DocTIC.DocTic.Model.UsuarioModel;
 import com.DocTIC.DocTic.Service.IUsuarioService;
 
+/**
+ * [UsuarioController]
+ * 
+ * Este controlador gestiona todas las operaciones relacionadas con los usuarios
+ * en la aplicación DocTIC. Proporciona endpoints REST para registrar, obtener, listar,
+ * editar y eliminar usuarios. 
+ * 
+ * 25-09-2024
+ * **/
 @RestController
 @RequestMapping("/doctic/v1/usuarios")
 public class UsuarioController {
