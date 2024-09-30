@@ -12,7 +12,7 @@ DocTIC es una API REST diseñada para la gestión de documentos y usuarios en un
 
 ## Requisitos Previos
 - **Java 22+**: Asegúrate de tener instalado JDK 22 o superior.
-- **MySQL 8.0+**: El sistema está diseñado para interactuar con una base de datos MySQL.
+- **MySQL Workbench 8.0**: El sistema está diseñado para interactuar con una base de datos MySQL.
 - **Maven**: Para gestionar las dependencias y construir el proyecto.
 
 ## Guía de Instalación
