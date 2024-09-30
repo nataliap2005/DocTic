@@ -14,4 +14,6 @@ public interface IPublicaService {
     String editarPublica(PublicaModel publica);
 
     String eliminarPublicaPorId(int idPublica);
+
+    List<PublicaModel> obtenerPublicacionesPorUsuario(int idUsuario);
 }

@@ -53,4 +53,10 @@ public ResponseEntity<String> editarPublicacion(@RequestBody PublicaModel Public
 public ResponseEntity<String> eliminarPublicaciones(@PathVariable int id){
     return new ResponseEntity<String>(publicaService.eliminarPublicaPorId(id), HttpStatus.OK);
 }
+
+@GetMapping("/obtener/usuario/{id}")
+public ResponseEntity<?> obtenerPublicacionesUsuario(@PathVariable int id){
+    return ResponseEntity.ok(publicaService.obtenerPublicacionesPorUsuario(id));
+}
+
 }

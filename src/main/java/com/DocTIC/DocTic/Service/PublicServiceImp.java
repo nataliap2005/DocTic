@@ -54,5 +54,10 @@ public class PublicServiceImp implements IPublicaService  {
             throw new RecursoNoEncontradoException("No se encontró la publicació con Id " + idPublica);
         }
     }
+
+    @Override
+    public List<PublicaModel> obtenerPublicacionesPorUsuario(int idUsuario){
+        return publicaRepository.findPublicacionByUsuario(idUsuario);
+    }
     
 }

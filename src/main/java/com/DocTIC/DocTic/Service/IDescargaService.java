@@ -11,4 +11,6 @@ public interface IDescargaService {
     List<DescargaModel> listarDescargas();
 
     String eliminarDescargaPorId(int idDescarga);
+
+    List<DescargaModel> obtenerDescargasPorUsuario(int idUsuario);
 }

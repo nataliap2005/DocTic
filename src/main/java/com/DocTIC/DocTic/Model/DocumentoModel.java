@@ -14,6 +14,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -53,18 +54,23 @@ public class DocumentoModel {
     @JoinColumn(name = "idCategoria", nullable = true)
     private CategoriaModel categoria;
     
+    @Transient
     @OneToMany(mappedBy = "idComentario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ComentarioModel> comentarios;
     
+    @Transient
     @OneToMany(mappedBy = "idVisualiza", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<VisualizaModel> visualizaciones;
 
+    @Transient
     @OneToMany(mappedBy = "idValora", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ValoraModel> valoraciones;
 
+    @Transient
     @OneToMany(mappedBy = "idPublica", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PublicaModel> publicaciones;
 
     @OneToMany(mappedBy = "idDescarga", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Transient
     private List<DescargaModel> descargas;
 }

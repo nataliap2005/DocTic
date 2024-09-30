@@ -46,4 +46,9 @@ public class DescargaController {
     public ResponseEntity<String> eliminarDescargas(@PathVariable int id){
         return new ResponseEntity<String>(descargaService.eliminarDescargaPorId(id), HttpStatus.OK);
     }
+
+    @GetMapping("/obtener/usuario/{id}")
+    public ResponseEntity<?> obtenerDescargasUsuario(@PathVariable int id){
+        return ResponseEntity.ok(descargaService.obtenerDescargasPorUsuario(id));
+    }
 }

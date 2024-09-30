@@ -42,4 +42,9 @@ public class DescargaServiceImp implements IDescargaService {
             throw new RecursoNoEncontradoException("No se encontró la descarga con Id " + idDescarga);
         }
     }
+
+    @Override
+    public List<DescargaModel> obtenerDescargasPorUsuario(int idUsuario){
+        return descargaRepository.findDescargasByUsuario(idUsuario);
+    }
 }
