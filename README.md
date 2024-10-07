@@ -47,9 +47,12 @@ DocTIC es una API REST diseñada para la gestión de documentos y usuarios en un
 
 ### Objetos almacenados
 [Objetos almacenados](https://docs.google.com/document/d/1r9i-yTTMK-Of-mdovm2e7hg_fAy6cbEAahXnXE09exg/edit?usp=sharing)
-### Nota adicional:
-Se destaca que el proyecto contiene **comentarios Javadoc** en el código, lo que ayuda a entender mejor la lógica y la estructura del sistema directamente desde el código fuente.
 
 ### Consultas
 [Consultas](https://docs.google.com/document/d/1bDQL1C9TfYvHZq7OMfNCCzyl52N6ak8cTajmPdMXHjI/edit?usp=sharing)
+
+### Nota adicional:
+Se destaca que el proyecto contiene **comentarios Javadoc** en el código, lo que ayuda a entender mejor la lógica y la estructura del sistema directamente desde el código fuente.
+
+
 
